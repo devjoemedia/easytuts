@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('../layouts.app')
 @section('content')
     <div class="content container">
         <!-- Showcase OR Slider -->
         <div class="showcase">
             <div class="showcase-inner">
                 @foreach ($currentPosts as $post)
-                    <a href="/posts/{{ $post->slug }}" class="barnners">
+                    <a href="/tutorials/{{ $post->slug }}" class="barnners">
                         <div class="banner fade">
                             <img src="/storage/{{ $post->postcover }}" />
                         </div>

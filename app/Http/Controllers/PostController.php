@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Tag;
+use App\Models\Category;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
@@ -22,9 +25,7 @@ class PostController extends Controller
     {
         $posts = Post::get();
 
-        $currentPosts = $posts->take(-5);
-
-        return view('posts.index', compact('posts', 'currentPosts'));
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -34,7 +35,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $tags = Tag::get();
+        $categories = Category::get();
+        return view('admin.posts.create', compact('tags','categories'));
     }
 
     /**
@@ -65,7 +68,7 @@ class PostController extends Controller
             'postcover' => $imagePath
         ]);
 
-        return redirect()->route('index');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -78,7 +81,7 @@ class PostController extends Controller
     {
         $currentPosts = Post::get()->take(-5);
         $post = Post::where('slug', $post)->firstOrfail();
-        return view('posts.show', compact('post', 'currentPosts'));
+        return view('admin.posts.show', compact('post', 'currentPosts'));
     }
 
     /**
@@ -91,7 +94,7 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $post)->firstOrfail();
 
-        return view('posts.edit',compact('post'));
+        return view('admin.posts.edit',compact('post'));
     }
 
     /**
@@ -124,7 +127,7 @@ class PostController extends Controller
             $imgArr ?? []
         ));
 
-        return redirect('/posts/'.$post->slug);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -139,6 +142,6 @@ class PostController extends Controller
         
         $post->delete();
 
-        return redirect()->route('index');
+        return redirect()->route('posts.index');
     }
 }

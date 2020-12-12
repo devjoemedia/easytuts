@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class CategorieController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        $allUsers = User::get();
+
+        return view('admin.users.users', compact('allUsers'));
     }
 
     /**
@@ -43,9 +46,10 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+
+        return view('admin.users.profile', compact('user'));
     }
 
     /**

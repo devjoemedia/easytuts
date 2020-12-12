@@ -1,65 +1,44 @@
-@extends('layouts.app')
+@extends('./admin.app')
 @section('content')
-    <div class="content container">
-        <!-- Showcase OR Slider -->
-        <div class="showcase">
-            <div class="showcase-inner">
-                @foreach ($currentPosts as $post)
-                    <a href="{{route('posts.show', $post->slug)}}" class="barnners">
-                        <div class="banner fade">
-                            <img src="/storage/{{$post->postcover}}" />
-                        </div>
-                    </a>
-                @endforeach
-                
-                <div class="indicators">
-                    @foreach ($currentPosts as $post)
-                        <div class="indicator"></div>
-                    @endforeach
-                </div>
-            </div>
-            <!-- Articles -->
-            <div class="articles">
-                <h2 class="heading">Our Articles</h2>
-                <div>
-                    @foreach ($posts as $post)
-                        <div class="article">
-                            @if ($post->postcover)
-                                <img src="/storage/{{ $post->postcover }}" />
-                            @else
-                                <img src="/img/tech-1.jpg" />
-                            @endif
-                            <p class="desc">
-                                <strong>By</strong> : {{$post->user->name}}. <strong>On:</strong>
-                                <small>{{ $post->created_at->toDateString() }}</small> .
-                            </p>
-                            <div class="article-body">
-                                <h3>{{ $post->title }}</h3>
-
-                            </div>
-                            <div class="article-footer">
-                                <a href="{{route('posts.show', $post->slug)}}" class="button-primary">More</a>
-                                <div class="article-activities">
-                                    <span>
-                                        <i class="far fa-comment"></i>
-                                        4 comments
-                                    </span>
-                                    <span>
-                                        <i class="far fa-heart"></i>
-                                        23 likes
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Dashboard</span>
+            <h3 class="page-title">Posts</h3>
         </div>
-        {{-- Sidebar --}}
-        <x-sidebar :currentPosts="$currentPosts" />
     </div>
-@endsection
-@section('mainfooter')
-    {{-- Main Footer --}}
-    <x-footer />
+    <!-- End Page Header -->
+       <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Author</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+       </div>
+       
 @endsection

@@ -8,9 +8,7 @@
     <title>QB's | Blog</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet" />
-
     <link href="{{ asset('/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css') }}" rel="stylesheet">
-
     {{-- styles --}}
     <script src="https://kit.fontawesome.com/48172a145b.js" crossorigin="anonymous"></script>
     <link href="{{ asset('/css/select2.min.css') }}" rel="stylesheet">
@@ -82,9 +80,7 @@
 
     {{-- scripts --}}
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-    {{-- <script src="{{ asset('/js/app.js') }}"></script>
-    --}}
+    <script src="{{ asset('/js/app.js') }}"></script>
     <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js') }}"></script>
     <script src="{{ asset('/js/select2.min.js') }}"></script>
