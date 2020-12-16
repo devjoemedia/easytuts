@@ -48,6 +48,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data = $this->validate($request, [
             'title' => 'required',
             'category' => 'required',
@@ -61,12 +62,13 @@ class PostController extends Controller
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(750, 350);
         $image->save();
 
-        auth()->user()->posts()->create([
+        $post = auth()->user()->posts()->create([
             'title' => $data['title'],
             'category' => $data['category'],
             'body' => $data['body'],
             'postcover' => $imagePath
         ]);
+        $post->tags()->sync($request->tags, false);
 
         return redirect()->route('posts.index');
     }
@@ -81,6 +83,7 @@ class PostController extends Controller
     {
         $currentPosts = Post::get()->take(-5);
         $post = Post::where('slug', $post)->firstOrfail();
+        
         return view('admin.posts.show', compact('post', 'currentPosts'));
     }
 

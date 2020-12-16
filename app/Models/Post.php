@@ -31,7 +31,7 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
     
     // protected static function boot() {
@@ -46,4 +46,6 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+   
 }

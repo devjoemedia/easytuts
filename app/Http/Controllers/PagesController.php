@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 
 class PagesController extends Controller
 {
@@ -11,9 +12,10 @@ class PagesController extends Controller
   public function index()
   {
       $posts = Post::paginate(6);
+      $categories = Category::get();
 
-      $currentPosts = $posts->take(-5);
+      $currentPosts = Post::get()->take(-5);
 
-      return view('pages.index', compact('posts', 'currentPosts'));
+      return view('pages.index', compact('posts', 'currentPosts','categories'));
   }
 }

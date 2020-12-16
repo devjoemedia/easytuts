@@ -1,11 +1,11 @@
-@extends('../layouts.app')
+@extends('layouts.app')
 @section('content')
     <div class="content container">
         <!-- Showcase OR Slider -->
         <div class="showcase">
             <!-- Articles -->
             <div class="articles">
-                <h1 class="heading">Tutorials</h1>
+                <h1 class="heading">Tutorials {{$searchTerm}}</h1>
                 <div>
                     @foreach ($posts as $post)
                         <div class="article">
@@ -38,8 +38,11 @@
                         </div>
                     @endforeach
                 </div>
+                {{$posts->links()}}
             </div>
         </div>
+        {{-- Sidebar --}}
+        <x-sidebar :currentPosts="$currentPosts" :categories="$categories" />
     </div>
 @endsection
 @section('mainfooter')

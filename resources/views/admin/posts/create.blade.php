@@ -29,8 +29,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="tag" class="form-control-label">tag</label>
-                            <select name="tag" class="form-control select-tags" multiple="multiple">
+                            <label for="tags" class="form-control-label">tag</label>
+                            <select name="tags[]" class="form-control select-tags" multiple="multiple">
                                 @foreach ($tags as $tag)
                                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                 @endforeach

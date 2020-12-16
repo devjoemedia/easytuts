@@ -7,11 +7,9 @@
             <div class="post-tags">
                 <ul>
                     <h3>Tags: </h3>
-                    {{-- <li><a href="{{ request()->fullUrlWithQuery(['tag' => 'java'])}}">Web development</a></li> --}}
-                    <li><a href="{{ route('tutorials.tag',['tag'=>'done'])}}">Web development</a></li>
-                    <li>Javascript</li>
-                    <li>Sass</li>
-
+                    @foreach ($tags as $tag)
+                        <li><a href="{{ route('tutorials.tag',['tag'=>$tag->name])}}">{{$tag->name}}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="post-header">

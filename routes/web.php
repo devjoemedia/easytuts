@@ -25,8 +25,9 @@ Route::prefix('tutorials')->group(function(){
   Route::get('/', [TutorialsController::class, 'getAll'])->name('tutorials.all');
   Route::get('/{slug}', [TutorialsController::class, 'getSingle'])->name('tutorials.single');
   
-  Route::get('/', [TagsController::class, 'getByTagName'])->name('tutorials.tag');
-
+  
+  Route::get('/tags/by-tag', [TagsController::class, 'getByTagName'])->name('tutorials.tag');
+  Route::get('/categories/by-category', [CategoriesController::class, 'byCategory'])->name('tutorials.category');
 });
 
 Route::prefix('admin')->group( function(){

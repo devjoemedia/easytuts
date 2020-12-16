@@ -31,24 +31,13 @@
      <div id="categories">
          <h4>Our Categories</h4>
          <ul class="category-items">
-             <li class="category-item">
-                 <a href="#">Politics</a>
-             </li>
-             <li class="category-item">
-                 <a href="#">Business</a>
-             </li>
-             <li class="category-item">
-                 <a href="#">Sports</a>
-             </li>
-             <li class="category-item">
-                 <a href="#">Entertainment</a>
-             </li>
-             <li class="category-item">
-                 <a href="#">Technology</a>
-             </li>
-             <li class="category-item">
-                 <a href="#">Trading</a>
-             </li>
+            @foreach ($categories as $category)
+                <li class="category-item">
+                    <a href="{{ route('tutorials.category',['category'=>$category->id]) }}">{{$category->title}}</a>
+                </li>
+
+            @endforeach
+            
          </ul>
      </div>
      <!-- -------ADDS -->

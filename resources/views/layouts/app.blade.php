@@ -29,7 +29,7 @@
                     <a href="/" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/tutorials" class="nav-link">Tutorials</a>
+                    <a href="{{route('tutorials.all')}}" class="nav-link">Tutorials</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Resources</a>

@@ -14,31 +14,39 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Author</th>
+              <th scope="col">Title</th>
+              <th scope="col">Category</th>
               <th scope="col">Created At</th>
-              <th scope="col">Edit</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($posts as $post)
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+                <td scope="row">1</td>
+                <td>{{$post->user->name}} ...</td>
+                <td>{{Str::substr($post->title,0, 40)}} ...</td>
+                <td>Web Development</td>
+                <td>{{$post->created_at}}</td>
+                <td><a href="details.html" class="btn btn-secondary">
+                        <i class="fa fa-angle-double-right"></i> Details</a>
+                </td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+                
+            @endforeach
           </tbody>
+         
         </table>
+        <nav class="ml-4">
+          <ul class="pagination">
+              <li class="page-item disabled"><a href="#" class="page-link ">Previous</a></li>
+              <li class="page-item active"><a href="#" class="page-link ">1</a></li>
+              <li class="page-item"><a href="#" class="page-link">2</a></li>
+              <li class="page-item"><a href="#" class="page-link">3</a></li>
+              <li class="page-item"><a href="#" class="page-link">Next</a></li>
+
+          </ul>
+      </nav>
        </div>
        
 @endsection

@@ -57,7 +57,7 @@
             </div>
         </div>
         {{-- Sidebar --}}
-        <x-sidebar :currentPosts="$currentPosts" />
+        <x-sidebar :currentPosts="$currentPosts" :categories="$categories" />
     </div>
 @endsection
 @section('mainfooter')
