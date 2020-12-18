@@ -9,7 +9,7 @@ use App\Models\Category;
 class TutorialsController extends Controller
 {
   
-
+  // http://localhost:8000/storage/upload/6VqXCMVtx4GYqZKUIyqPGUi7I533fiaY1fD9lhAH.jpeg;
   public function getAll()
   {
       
@@ -17,7 +17,9 @@ class TutorialsController extends Controller
       $categories = Category::get()->take(10);;
       $currentPosts = Post::get()->take(-5);;
 
-      return view('pages.all', compact('posts', 'categories','currentPosts'));
+      $searchTerm = '/ All Categories / ';
+
+      return view('pages.all', compact('posts', 'categories','currentPosts','searchTerm'));
   }
 
   public function getSingle($slug)

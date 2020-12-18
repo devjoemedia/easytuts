@@ -70,7 +70,7 @@
         </li>
     </ul>
     {{-- Body --}}
-    <main>
+    <main class="main">
         @yield('content')
         {{-- @yield('sidebar') --}}
     </main>
