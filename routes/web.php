@@ -12,19 +12,16 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TutorialsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CommentsController;
 
 Route::get('/', [PagesController::class, 'index'])->name('index ');
-// Route::get('/contacts', [PagesController::class, 'getContact'])->name('pages.contact ');
-// Route::get('/about', [PagesController::class, 'getAbout'])->name('pages.about ');
 
-// Route::get('/', [PostController::class, 'index'])->name('index');
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+// Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::prefix('tutorials')->group(function(){
   Route::get('/', [TutorialsController::class, 'getAll'])->name('tutorials.all');
   Route::get('/{slug}', [TutorialsController::class, 'getSingle'])->name('tutorials.single');
-  
   
   Route::get('/tags/by-tag', [TagsController::class, 'getByTagName'])->name('tutorials.tag');
   Route::get('/categories/by-category', [CategoriesController::class, 'byCategory'])->name('tutorials.category');
@@ -38,6 +35,7 @@ Route::prefix('admin')->group( function(){
   Route::resource('tags', TagsController::class);
 });
 
+Route::post('/comments/{postId}', [CommentsController::class, 'store'])->name('comments.store ');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');

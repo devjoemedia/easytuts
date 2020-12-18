@@ -68,7 +68,7 @@ header {
     border-bottom: 1px solid lightgray;
     width: 100%;
     position: fixed;
-    background: rgba(255, 255, 255,.97);
+    background: rgba(255, 255, 255, 0.97);
 }
 .logo img {
     width: 5rem;
@@ -283,7 +283,6 @@ header {
     line-height: 1.4em;
     color: #182334;
     /* font-family: Operator Mono, Fira Code, menlo, monospace; */
-
 }
 .post-actions {
     display: flex;
@@ -316,11 +315,46 @@ header {
     border-radius: 0.25rem;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+.post p {
+    padding: 1rem 0;
+}
 
+.comment {
+    max-width: 600px;
+    padding: 2rem 0;
+}
+.comment__form {
+    padding: 1rem;
+    width: 100%;
+}
+
+.comment__form input,
+.comment__form textarea {
+    width: 100%;
+    margin: 1.5rem 0;
+    padding: 0.8rem 2rem;
+}
+.comment__form input:focus,
+.comment__form textarea:focus {
+    outline: none;
+}
+.comment__form textarea {
+    min-height: 150px;
+}
+.post-comments {
+    padding: 2rem 0;
+}
+.post-comment {
+    margin-top: 2rem;
+    border-left: 2px solid #182334;
+    padding: 1rem;
+}
+pre {
+    background-color: #182334 !important;
+}
 pre code {
     padding: 15px !important;
     color: #fff;
-    background-color: #182334 !important;
     box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.08);
     overflow: auto;
     line-height: 1.5em;
@@ -332,10 +366,11 @@ pre code {
 .pagination {
     display: flex;
 }
-.pagination a, .pagination span{
+.pagination a,
+.pagination span {
     position: relative;
     display: block;
-    padding: .5rem .85rem;
+    padding: 0.5rem 0.85rem;
     margin-left: -1px;
     line-height: 1.25;
     color: #182334;
@@ -521,8 +556,16 @@ a {
         flex-direction: column;
         padding: 0;
     }
+    .comment {
+        width: 100%;
+    }
+    .post-content,
+    .articles {
+        width: 100%;
+        padding: 2rem;
+    }
     .container {
-        width: 90%;
+        width: 95%;
     }
     #search {
         display: none;
