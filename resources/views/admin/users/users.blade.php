@@ -33,7 +33,7 @@
                     <td>{{$user->created_at->toDateString()}}</td>
                     <td class="d-flex">
                       <a class="btn btn-primary mr-1" href="{{ route('users.show', $user->id)}}">view</a>
-                      <form  method="post" action="{{route('users.destroy', $user->id)}}">
+                      <form  action="{{route('users.destroy', $user->id)}}"  method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
