@@ -28,8 +28,13 @@
                 <td>{{Str::substr($post->title,0, 40)}} ...</td>
                 <td>Web Development</td>
                 <td>{{$post->created_at}}</td>
-                <td><a href="details.html" class="btn btn-secondary">
-                        <i class="fa fa-angle-double-right"></i> Details</a>
+                <td class="d-flex">
+                  <a class="btn btn-primary mr-1" href="{{ route('posts.edit', $post->slug) }}">view</a>
+                  <form action="{{ route('posts.destroy', $post->slug) }}"  method="POST" >
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
                 </td>
             </tr>
                 

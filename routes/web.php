@@ -11,13 +11,10 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TutorialsController;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CommentsController;
 
 Route::get('/', [PagesController::class, 'index'])->name('index ');
 
-
-// Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::prefix('tutorials')->group(function(){
   Route::get('/', [TutorialsController::class, 'getAll'])->name('tutorials.all');

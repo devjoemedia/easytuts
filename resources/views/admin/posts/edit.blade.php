@@ -29,10 +29,11 @@
                         <div class="form-group">
                             <label for="category" class="form-control-label">Category</label>
                             <select class="form-control" name="category" type="text">
-
-                                <option>Catecory</option>
-                                <option value="css">CSS</option>
-                                <option value="javascript">JAVASCRIPT</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ $category->id == $post->category ? 'selected' : '' }}>{{ $category->title }}
+                                    </option>
+                                @endforeach
                             </select>
                             @error('category')
                                 <div class="alert alert-danger">
@@ -42,8 +43,10 @@
                         </div>
                         <div class="form-group">
                             <label for="tag" class="form-control-label">tag</label>
-                            <select name="tag" class="select-tags form-control" multiple="multiple">
-                                <option>Tag</option>
+                            <select name="tags[]" class="form-control select-tags" multiple="multiple">
+                                @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group bg-faded p-3">
@@ -154,4 +157,21 @@
         </div>
     </div>
 
+@endsection
+@section('script')
+    <script>
+        var config = {
+            extraPlugins: "codesnippet",
+            codeSnippet_theme: "monokai_sublime"
+        };
+
+        CKEDITOR.replace("body", config);
+
+        hljs.initHighlightingOnLoad();
+
+
+        $('.select-tags').select2();
+        $('.select-tags').val({!! json_encode($post->tags()->allRelatedIds()) !!}).trigger('change');
+
+    </script>
 @endsection

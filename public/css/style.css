@@ -259,6 +259,9 @@ header {
 .post-content {
     width: 65%;
     margin: auto;
+    line-height: 1.6;
+    letter-spacing: 0;
+    word-break: break-word;
 }
 .post img {
     height: 350px;
@@ -351,17 +354,18 @@ header {
 }
 pre {
     background-color: #182334 !important;
+    white-space: pre-wrap;
 }
 pre code {
-    padding: 15px !important;
+    padding: 20px !important;
     color: #fff;
     box-shadow: 4px 4px 15px 0 rgba(36, 37, 38, 0.08);
-    overflow: auto;
-    line-height: 1.5em;
-    margin: 2rem 0;
+    overflow-x: auto ;
+    margin: 1rem 0;
     border-radius: 4px;
+    line-height: 1.5em;
     font-family: Operator Mono, Fira Code, menlo, monospace;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 .pagination {
     display: flex;

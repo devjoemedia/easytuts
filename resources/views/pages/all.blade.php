@@ -27,11 +27,7 @@
                                 <div class="article-activities">
                                     <span>
                                         <i class="far fa-comment"></i>
-                                        4 comments
-                                    </span>
-                                    <span>
-                                        <i class="far fa-heart"></i>
-                                        23 likes
+                                        {{$post->comments->count()}} comments
                                     </span>
                                 </div>
                             </div>

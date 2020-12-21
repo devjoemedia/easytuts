@@ -19,14 +19,10 @@
                 <div>
                     <span>
                         <i class="far fa-comment"></i>
-                        4 comments
-                    </span>
-                    <span>
-                        <i class="far fa-heart"></i>
-                        23 likes
+                        {{$post->comments->count()}} comments
                     </span>
                 </div>
-                @can('update', $post)
+                {{-- @can('update', $post)
                     <div class="post-actions">
                         <a href="/posts/{{ $post->slug }}/edit" class="button-primary">Edit</a>
                         <form action="{{ route('posts.destroy', $post->slug) }}" method="post">
@@ -35,7 +31,7 @@
                             <button type="submit" class="button-primary">Delete</button>
                         </form>
                     </div>
-                @endcan
+                @endcan --}}
             </div>
 
             <div class="post">

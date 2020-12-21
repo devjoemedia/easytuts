@@ -85,18 +85,10 @@
     <script src="{{ asset('/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js') }}"></script>
     <script src="{{ asset('/js/select2.min.js') }}"></script>
 
+
     <script>
-        var config = {
-            extraPlugins: "codesnippet",
-            codeSnippet_theme: "monokai_sublime"
-        };
-
-        CKEDITOR.replace("body", config);
-
+       
         hljs.initHighlightingOnLoad();
-
-      
-        $('.select-tags').select2();
 
     </script>
 </body>

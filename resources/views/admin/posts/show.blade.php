@@ -10,7 +10,6 @@
                     <li>Web development</li>
                     <li>Javascript</li>
                     <li>Sass</li>
-
                 </ul>
             </div>
             <div class="post-header">

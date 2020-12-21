@@ -14,7 +14,7 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index','show');
+        $this->middleware('admin');
     }
     /**
      * Display a listing of the resource.
@@ -82,7 +82,7 @@ class PostController extends Controller
     public function show( $post)
     {
         $currentPosts = Post::get()->take(-5);
-        $post = Post::where('slug', $post)->firstOrfail();
+        // $post = Post::where('slug', $post)->firstOrfail();
         
         return view('admin.posts.show', compact('post', 'currentPosts'));
     }
@@ -96,8 +96,14 @@ class PostController extends Controller
     public function edit($post)
     {
         $post = Post::where('slug', $post)->firstOrfail();
+        $categories = Category::get();
+        $tags = Tag::get();
+        // $tags = array();
+        // foreach($allTags as $tag) {
+        //     $tags[$tag->id] = $tag->name;
+        // }
 
-        return view('admin.posts.edit',compact('post'));
+        return view('admin.posts.edit',compact('post','categories','tags'));
     }
 
     /**
@@ -130,6 +136,8 @@ class PostController extends Controller
             $imgArr ?? []
         ));
 
+        $post->tags()->sync($request->tags);
+
         return redirect()->route('posts.index');
     }
 
@@ -139,7 +147,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($post)
+    public function destroy( $post)
     {
         $post = Post::where('slug', $post)->firstOrfail();
         

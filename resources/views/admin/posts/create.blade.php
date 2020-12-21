@@ -140,3 +140,18 @@
         </div>
     </div>
 @endsection
+@section('script')
+<script>
+    var config = {
+        extraPlugins: "codesnippet",
+        codeSnippet_theme: "monokai_sublime"
+    };
+
+    CKEDITOR.replace("body", config);
+
+    hljs.initHighlightingOnLoad();
+
+  
+    $('.select-tags').select2();
+</script>
+@endsection
